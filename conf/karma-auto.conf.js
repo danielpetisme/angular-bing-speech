@@ -1,11 +1,11 @@
-// Karma configuration
-// Generated on Mon Feb 13 2017 16:13:33 GMT+0100 (CET)
+const conf = require('./gulp.conf');
+const listFiles = require('./karma-files.conf');
 
 module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: '../',
 
 
     // frameworks to use
@@ -14,13 +14,7 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
-    files: [
-      './bower_components/angular/angular.js',
-      './bower_components/angular-mocks/angular-mocks.js',
-      './bower_components/ngstorage/ngstorage.js',
-      './bing-speech.js',
-      './bing-speech.spec.js'
-    ],
+    files: listFiles(),
 
 
     // list of files to exclude
