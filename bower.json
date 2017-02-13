@@ -1,0 +1,31 @@
+{
+  "name": "angular-bing-speech",
+  "authors": [
+    "Daniel Petisme <daniel.petisme@gmail.com>"
+  ],
+  "description": "A Microsoft Bing Speech client module for AngularJS",
+  "main": "./bing-speech.js",
+  "keywords": [
+    "Microsoft",
+    "Bing Speech",
+    "BingSpeech",
+    "SpeechToText",
+    "TextToSpeech"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/danielpetisme/angular-bing-speech",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "ngstorage": "^0.3.11"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.6.2"
+  }
+}
