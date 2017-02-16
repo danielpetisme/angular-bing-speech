@@ -18,7 +18,7 @@ before_install:
   - node -v
   - npm -v
   - bower -v
-install: gulp install
+install: npm install && bower install
 script:
   - gulp test
 notifications:
