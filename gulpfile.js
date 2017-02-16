@@ -11,7 +11,9 @@ const conf = require('./conf/gulp.conf');
 gulp.task('clean-dist', cleanDist);
 gulp.task('test', karmaSingleRun);
 gulp.task('test:auto', karmaAutoRun);
-gulp.task('build', gulp.series('clean-dist', 'test', build));
+gulp.task('assembly', assembly);
+//gulp.task('compress', compress);
+gulp.task('build', gulp.series('clean-dist', 'test', 'assembly'));
 gulp.task('default', gulp.series('build'));
 
 
@@ -38,15 +40,20 @@ function karmaFinishHandler(done) {
 }
 
 function cleanDist() {
-    return gulp.src(conf.path.dist())
+    return gulp.src(conf.path.dist('*'))
         .pipe(clean());
 }
 
-function build() {
-    return gulp.src(conf.path.src('/*.js'))
-        .pipe(concat('bing-speech.min.js'))
-        .pipe(uglify({
-            preserveComments: uglifySaveLicense
-        })).on('error', conf.errorHandler('Uglify'))
+function assembly() {
+    return gulp.src(conf.path.src('*.js'))
+        .pipe(concat('bing-speech.js'))
         .pipe(gulp.dest(conf.path.dist()));
 }
+
+// function compress() {
+//     return gulp.src(conf.path.dist('bing-speech.js'))
+//         .pipe(uglify({
+//             preserveComments: uglifySaveLicense
+//         })).on('error', conf.errorHandler('Uglify'))
+//         .pipe(gulp.dest(conf.path.dist('bing-speech.min.js')));
+// }

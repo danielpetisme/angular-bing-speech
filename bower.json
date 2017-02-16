@@ -4,7 +4,7 @@
     "Daniel Petisme <daniel.petisme@gmail.com>"
   ],
   "description": "A Microsoft Bing Speech client module for AngularJS",
-  "main": "./dist/bing-speech.min.js",
+  "main": "./dist/bing-speech.js",
   "keywords": [
     "Microsoft",
     "Bing Speech",
