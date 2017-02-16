@@ -5,7 +5,7 @@
     'use strict';
     angular
         .module('bing-speech', ['bing-speech.auth', 'bing-speech.service'])
-        .run(['$httpProvider', function($httpProvider) {
+        .config(['$httpProvider', function($httpProvider) {
             $httpProvider.interceptors.push('BingSpeechAuth');
         }]);
 })();
