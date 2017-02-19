@@ -4,8 +4,5 @@
 (function() {
     'use strict';
     angular
-        .module('bing-speech', ['bing-speech.auth', 'bing-speech.service'])
-        .config(['$httpProvider', function($httpProvider) {
-            $httpProvider.interceptors.push('BingSpeechAuth');
-        }]);
+        .module('bing-speech', ['bing-speech.auth', 'bing-speech.service']);        
 })();

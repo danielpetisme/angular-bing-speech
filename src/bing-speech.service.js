@@ -45,7 +45,7 @@
     BingSpeech.$inject = ['$http', '$q', 'BING_SPEECH'];
 
     function BingSpeech($http, $q, BING_SPEECH) {
-        var service = {
+        var service = {            
             recognize: recognize,
             synthesize: synthesize,
         };

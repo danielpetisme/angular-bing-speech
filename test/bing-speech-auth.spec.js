@@ -2,10 +2,8 @@
 // Licensed under the MIT license
 
 describe('bing-speech.auth', function() {
-    beforeEach(module('ngStorage'));
 
     var $httpBackend,
-        $localStorage,
         BingSpeechAuthProvider,
         BingSpeechAuth,
         ISSUE_TOKEN_URL;
@@ -16,15 +14,12 @@ describe('bing-speech.auth', function() {
 
     beforeEach(inject([
         '$httpBackend',
-        '$localStorage',
         '$rootScope',
         'ISSUE_TOKEN_URL',
-        function(_$httpBackend_, _$localStorage_, _$rootScope_, _ISSUE_TOKEN_URL_) {
+        function(_$httpBackend_, _$rootScope_, _ISSUE_TOKEN_URL_) {
             $httpBackend = _$httpBackend_;
-            $localStorage = _$localStorage_;
             $rootScope = _$rootScope_;
             ISSUE_TOKEN_URL = _ISSUE_TOKEN_URL_;
-            $localStorage.$reset();
         }
     ]));
 
@@ -62,10 +57,7 @@ describe('bing-speech.auth', function() {
                     return headers;
                 }).respond(200, 'DUMMY_JWT_TOKEN');
             BingSpeechAuth.login().then(function(data) {
-                expect($localStorage.authenticationToken).toBe('DUMMY_JWT_TOKEN');
-                expect($localStorage.tokenExpirationDate).not.toBeNull();
-                //+1 => Jasmine does not have a less than or Equal...
-                expect($localStorage.tokenExpirationDate).toBeLessThan((Date.now() + 9 * 60 * 1000) + 1);
+                expect(data).toBe('DUMMY_JWT_TOKEN');
             });
 
             $rootScope.$apply();
