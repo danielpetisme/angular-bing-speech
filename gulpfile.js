@@ -45,7 +45,7 @@ function cleanDist() {
 }
 
 function assembly() {
-    return gulp.src(conf.path.src('*.js'))
+    return gulp.src(conf.path.src('**/*.js'))
         .pipe(concat('bing-speech.js'))
         .pipe(gulp.dest(conf.path.dist()));
 }
