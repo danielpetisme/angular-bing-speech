@@ -23,10 +23,10 @@
 
         function BingSpeechAuth($http, $q, ISSUE_TOKEN_URL) {
             var service = {
-                login: login
-            };
+                login: login                
+            };                       
 
-            function issueToken() {
+            function login() {                                
                 if (!$subscriptionKey) {
                     return $q.reject('No subscription key defined');
                 }
@@ -35,17 +35,10 @@
                         'Ocp-Apim-Subscription-Key': $subscriptionKey
                     }
                 }).then(function(response) {
-                    return response.data;
+                    return response.data;                    
                 });
             }
-
-            function login() {
-                return issueToken().then(function(issuedToken) {
-                    return issuedToken;
-                }).catch(function(error) {
-                    return $q.reject(error);
-                });
-            }
+            
 
             return service;
         }

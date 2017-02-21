@@ -58,10 +58,10 @@ describe('bing-speech.auth', function() {
                 }).respond(200, 'DUMMY_JWT_TOKEN');
             BingSpeechAuth.login().then(function(data) {
                 expect(data).toBe('DUMMY_JWT_TOKEN');
-            });
+            });            
 
             $rootScope.$apply();
-            $httpBackend.flush();
+            $httpBackend.flush(1);
         });
     });
 

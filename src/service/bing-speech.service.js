@@ -1,7 +1,7 @@
 // Copyright (c) 2017 Daniel Petisme
 // Licensed under the MIT license
 
-(function() {
+(function () {
     'use strict';
     angular
         .module('bing-speech.service', [])
@@ -45,10 +45,11 @@
     BingSpeech.$inject = ['$http', '$q', 'BING_SPEECH'];
 
     function BingSpeech($http, $q, BING_SPEECH) {
-        var service = {            
+        var service = {
             recognize: recognize,
             synthesize: synthesize,
         };
+
 
         function recognize(audio, locale) {
             if (!audio) {
@@ -107,7 +108,7 @@
 
         function uuid4() {
             // https://gist.github.com/kaizhu256/2853704
-            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(cc) {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (cc) {
                 var rr = Math.random() * 16 | 0;
                 return (cc === 'x' ? rr : (rr & 0x3 | 0x8)).toString(16);
             });
