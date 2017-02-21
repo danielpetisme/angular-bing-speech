@@ -6,16 +6,16 @@
     angular
         .module('bing-speech', ['bing-speech.auth', 'bing-speech.service'])
         .config(httpConfig);
-        
-        httpConfig.$inject = ['$httpProvider', 'jwtOptionsProvider'];
 
-        function httpConfig($httpProvider, jwtOptionsProvider) {            
-            jwtOptionsProvider.config({
-                tokenGetter: ['BingSpeechAuth', function (BingSpeechAuth) {
-                    return BingSpeechAuth.login();
-                }]
-            });
+    httpConfig.$inject = ['$httpProvider', 'jwtOptionsProvider'];
 
-            $httpProvider.interceptors.push('jwtInterceptor');
+    function httpConfig($httpProvider, jwtOptionsProvider) {
+        jwtOptionsProvider.config({
+            tokenGetter: ['BingSpeechAuth', function (BingSpeechAuth) {
+                return BingSpeechAuth.login();
+            }]
         });
+
+        $httpProvider.interceptors.push('jwtInterceptor');
+    }
 })();
